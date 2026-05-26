@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import clinisio from "../images/clinisio.svg";
+import clinisio from '../images/clinisio.svg';
 import skillcrunch from "../images/skillcrunch.svg";
 
 const images = [

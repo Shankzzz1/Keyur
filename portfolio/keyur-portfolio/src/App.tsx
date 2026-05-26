@@ -35,23 +35,37 @@ export default function App() {
       <CustomCursor />
 
       {/* ── Desktop: locked viewport, original 3×2 grid ── */}
-      <main className="hidden lg:block w-screen h-screen bg-[#f5f4ef] overflow-hidden">
+      <main className="hidden lg:flex lg:flex-col w-screen h-screen bg-[#f5f4ef] overflow-hidden">
         <motion.div
-          className="w-full h-full grid grid-rows-2 overflow-hidden"
+          className="w-full h-full grid grid-rows-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
         >
-          <div className="grid grid-cols-3 min-h-0">
+          <div className="grid grid-cols-3 min-h-0 overflow-hidden">
             {cells.slice(0, 3).map(({ component, key }, i) => (
-              <motion.div key={key} custom={i} variants={fadeIn} initial="hidden" animate="show" className="min-h-0">
+              <motion.div
+                key={key}
+                custom={i}
+                variants={fadeIn}
+                initial="hidden"
+                animate="show"
+                className="min-h-0 min-w-0 overflow-hidden"
+              >
                 {component}
               </motion.div>
             ))}
           </div>
-          <div className="grid grid-cols-3 min-h-0">
+          <div className="grid grid-cols-3 min-h-0 overflow-hidden">
             {cells.slice(3).map(({ component, key }, i) => (
-              <motion.div key={key} custom={i + 3} variants={fadeIn} initial="hidden" animate="show" className="min-h-0">
+              <motion.div
+                key={key}
+                custom={i + 3}
+                variants={fadeIn}
+                initial="hidden"
+                animate="show"
+                className="min-h-0 min-w-0 overflow-hidden"
+              >
                 {component}
               </motion.div>
             ))}
@@ -74,7 +88,7 @@ export default function App() {
               variants={fadeIn}
               initial="hidden"
               animate="show"
-              className="aspect-square w-full overflow-hidden"
+              className="aspect-square w-full min-w-0 overflow-hidden"
             >
               {component}
             </motion.div>
