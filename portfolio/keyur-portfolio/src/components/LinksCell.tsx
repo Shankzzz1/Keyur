@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
-import resume from '../images/KeyurCV.pdf'
+
 const links = [
   { label: 'Behance', href: 'https://www.behance.net/keyurpawar306' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/keyur-pawar-66545b248/' },
   { label: 'Email', href: 'mailto:keyurpawar306@gmail.com' },
  { 
   label: 'Resume', 
-  href: resume,
+  href: '../images/KeyurCV.pdf',
   download: true,
 },
 ]
