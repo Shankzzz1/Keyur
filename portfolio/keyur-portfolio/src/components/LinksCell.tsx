@@ -1,24 +1,48 @@
 import { motion } from 'framer-motion'
 
 const links = [
-  { label: 'Behance', href: 'https://www.behance.net/keyurpawar306' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/keyur-pawar-66545b248/' },
-  { label: 'Email', href: 'mailto:keyurpawar306@gmail.com' },
- { 
-  label: 'Resume', 
-  href: '../images/KeyurCV.pdf',
-  download: true,
-},
+  {
+    label: 'Behance',
+    href: 'https://www.behance.net/keyurpawar306',
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/keyur-pawar-66545b248/',
+  },
+  {
+    label: 'Email',
+    href: 'mailto:keyurpawar306@gmail.com',
+  },
+  {
+    label: 'Resume',
+    href: '/KeyurCV.pdf', // Make sure this file is inside public/
+    download: true,
+  },
 ]
 
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.07, delayChildren: 0.5 } },
+  show: {
+    transition: {
+      staggerChildren: 0.07,
+      delayChildren: 0.5,
+    },
+  },
 }
 
 const item = {
-  hidden: { x: 20, opacity: 0 },
-  show: { x: 0, opacity: 1, transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
+  hidden: {
+    x: 20,
+    opacity: 0,
+  },
+  show: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.45,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
 }
 
 export default function LinksCell() {
@@ -34,7 +58,12 @@ export default function LinksCell() {
           <motion.a
             key={link.label}
             href={link.href}
-            target={link.href.startsWith('http') ? '_blank' : undefined}
+            download={link.download}
+            target={
+              link.href.startsWith('http')
+                ? '_blank'
+                : undefined
+            }
             rel="noopener noreferrer"
             variants={item}
             data-hover
@@ -45,10 +74,14 @@ export default function LinksCell() {
             <span className="text-white text-[28px] font-body font-normal tracking-wide">
               {link.label}
             </span>
+
             <motion.span
               className="text-white/50 text-2xl"
               initial={{ rotate: 0 }}
-              whileHover={{ rotate: -45, color: '#C8E63C' }}
+              whileHover={{
+                rotate: -45,
+                color: '#C8E63C',
+              }}
               transition={{ duration: 0.2 }}
             >
               ↗
